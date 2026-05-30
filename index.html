@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asatryandigitalstudio | Premium Invitations</title>
+    
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;       
+            --hero-bg: #f3f4f6;        
+            --card-bg: #ffffff;        
+            --text-main: #111111;      
+            --text-muted: #666666;     
+            --border-color: #eaeaea;   
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .lang-select {
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background-color: transparent;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-main);
+            cursor: pointer;
+            outline: none;
+        }
+
+        .hero-section {
+            background-color: var(--hero-bg);
+            padding: 50px 20px;
+            margin-top: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: var(--text-main);
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero-phone-container {
+            width: 100%;
+            max-width: 310px;
+            position: relative;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .hero-phone-mockup {
+            background: #ffffff;
+            border: 12px solid #111111;
+            border-radius: 40px;
+            aspect-ratio: 9 / 19.5;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            position: relative;
+        }
+
+        .hero-phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 22px;
+            background-color: #111111;
+            border-radius: 15px;
+            z-index: 10;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: #ffffff;
+        }
+.container {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .categories-menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding: 15px 0;
+            position: sticky;
+            top: 68px; 
+            background-color: var(--bg-color);
+            z-index: 900;
+            border-bottom: 1px solid transparent;
+        }
+
+        .categories-menu.scrolled {
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .category-circle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        .circle-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .circle-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-circle span {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        .category-circle:hover .circle-img {
+            transform: translateY(-4px);
+            border-color: var(--text-main);
+        }
+
+        .category-circle.active .circle-img {
+            border-color: var(--text-main);
+            transform: scale(1.05);
+            box-shadow: 0 0 0 3px #fff, 0 0 0 4px var(--text-main);
+        }
+
+        .category-circle.active span {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .catalog-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .catalog-section.active {
+            display: block;
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .notice-text {
+            font-size: 13px;
+            color: #d32f2f;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 35px;
+            letter-spacing: 0.5px;
+        }
+.works-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .works-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 35px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .works-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 35px;
+            }
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+        }
+
+        .phone-preview {
+            border: 8px solid #111111; 
+            border-radius: 28px;
+            overflow: hidden;
+            aspect-ratio: 9 / 17.5;
+            margin-bottom: 15px;
+            background-color: #ffffff;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .phone-preview::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 12px;
+            background-color: #111111;
+            border-radius: 10px;
+            z-index: 10;
+        }
+
+        .phone-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .work-code {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .work-price {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .card-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn-view {
+            display: block;
+            background-color: transparent;
+            color: var(--text-main);
+            padding: 8px 10px;
+            border: 1px solid var(--text-main);
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-view:hover {
+            background-color: var(--text-main);
+            color: #ffffff;
+        }
+
+        .btn-order {
+            display: block;
+            background-color: var(--text-main);
+            color: #ffffff;
+            padding: 9px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-order:hover {
+            background-color: #333333;
+        }
+/* ՀԱՐՑԱԿԱՆԻ ԿՈՃԱԿԻ ՈՃԵՐԸ */
+        .info-floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #111111;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 2000;
+            border: none;
+            outline: none;
+        }
+
+        .info-floating-btn:hover {
+            transform: scale(1.1);
+            background-color: #333333;
+        }
+
+        /* ՏԵՂԵԿԱՏՎԱԿԱՆ ՊԱՏՈՒՀԱՆԻ (MODAL) ՈՃԵՐԸ */
+        .info-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .info-modal.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            position: relative;
+            transform: translateY(20px);
+        }
+
+        .info-modal.open .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .modal-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .modal-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-list li {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333333;
+            font-weight: 500;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Logo" class="logo-img">
+            <div class="logo-text">Asatryandigitalstudio</div>
+        </div>
+        
+        <select class="lang-select" id="lang-picker" onchange="changeLanguage()">
+            <option value="hy" selected>AM</option>
+            <option value="ru">RU</option>
+            <option value="en">EN</option>
+        </select>
+    </header>
+
+    <section class="hero-section">
+        <h2 class="hero-title" id="main-quote">Ամեն բան սկսվում է հրավերից...</h2>
+        <div class="hero-phone-container">
+            <div class="hero-phone-mockup">
+                <video class="hero-video" autoplay loop muted playsinline poster="video.jpg">
+                    <source src="video.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <div class="categories-menu" id="sticky-menu">
+            <button class="category-circle" onclick="showCategory('wedding', this)">
+                <div class="circle-img"><img src="wedding.jpg" alt="Wedding"></div>
+                <span id="tab-wedding">Հարսանիք</span>
+            </button>
+            <button class="category-circle" onclick="showCategory('baptism', this)">
+                <div class="circle-img"><img src="knunq.jpg" alt="Baptism"></div>
+                <span id="tab-baptism">Մկրտություն</span>
+            </button>
+            <button class="category-circle" onclick="showCategory('birthday', this)">
+                <div class="circle-img"><img src="birth.jpg" alt="Birthday"></div>
+                <span id="tab-birthday">Ծնունդ</span>
+            </button>
+        </div>
+
+        <!-- ՀԱՐՍԱՆԵԿԱՆ ԲԱԺԻՆ -->
+        <div id="wedding-catalog" class="catalog-section">
+            <h3 class="section-title" id="title-wedding">Հարսանեկան Օրինակներ</h3>
+            <p class="notice-text" id="notice-msg">Տվյալ պահին հրավիրատոմսի կոճակները չեն աշխատի</p>
+            
+            <div class="works-grid">
+<!-- 1. Harut & Anush -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="Harut&Anush.jpg" alt="H-301"></div>
+                    <div class="work-code">CODE: H-301</div>
+                    <div class="work-price">10,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/Anush-Harut/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել H-301 (Harut և Anush) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 2. Hamlet & Srbuhi -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="Hamlet&Srbuhi.jpg" alt="H-302"></div>
+                    <div class="work-code">CODE: H-302</div>
+                    <div class="work-price">15,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/Srbuhi-Hamlet/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել H-302 (Hamlet և Srbuhi) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 3. Aren & Elina -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="Aren&Elina.jpg" alt="H-303"></div>
+                    <div class="work-code">CODE: H-303</div>
+                    <div class="work-price">10,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/Aren-Elina/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել H-303 (Aren և Elina) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 4. Gor & Asya -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="Gor&Asya.jpg" alt="H-304"></div>
+                    <div class="work-code">CODE: H-304</div>
+                    <div class="work-price">15,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/Gor-Asya/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել H-304 (Gor և Asya) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 5. Hayk & Lika -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="Hayk&Lika.jpg" alt="H-305"></div>
+                    <div class="work-code">CODE: H-305</div>
+                    <div class="work-price">10,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/-/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել H-305 (Hayk և Lika) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 6. Armen & Manan -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="Armen&Manan.jpg" alt="H-306"></div>
+                    <div class="work-code">CODE: H-306</div>
+                    <div class="work-price">15,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/Armen_Manan/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել H-306 (Armen և Manan) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 7. Ruben & Lina -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="Ruben&Lina.jpg" alt="H-307"></div>
+                    <div class="work-code">CODE: H-307</div>
+                    <div class="work-price">10,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/Ruben-Lina/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել H-307 (Ruben և Lina) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 8. Hakob & Lusine -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="Hakob&Lusine.jpg" alt="H-308"></div>
+                    <div class="work-code">CODE: H-308</div>
+                    <div class="work-price">15,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/Hakob-Lusine/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել H-308 (Hakob և Lusine) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 9. Alen & Mari -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="Alen&Mari.jpg" alt="H-309"></div>
+                    <div class="work-code">CODE: H-309</div>
+                    <div class="work-price">10,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/Alen-Mari/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել H-309 (Alen և Mari) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- ՄԿՐՏՈՒԹՅԱՆ ԲԱԺԻՆ -->
+        <div id="baptism-catalog" class="catalog-section">
+            <h3 class="section-title" id="title-baptism">Մկրտության Օրինակներ</h3>
+            <div class="works-grid">
+                
+                <!-- 1. Angel -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="angel.jpg" alt="M-101"></div>
+                    <div class="work-code">CODE: M-101</div>
+                    <div class="work-price">10,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/Angel/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել M-101 (Angel) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 2. Anjelika -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="anjelika.jpg" alt="M-102"></div>
+                    <div class="work-code">CODE: M-102</div>
+                    <div class="work-price">10,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/Anjelika/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել M-102 (Anjelika) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+<!-- ԾՆՆԴՅԱՆ ԲԱԺԻՆ -->
+        <div id="birthday-catalog" class="catalog-section">
+            <h3 class="section-title" id="title-birthday">Ծննդյան Օրինակներ</h3>
+            <div class="works-grid">
+                
+                <!-- 1. Ella -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="ella.jpg" alt="B-201"></div>
+                    <div class="work-code">CODE: B-201</div>
+                    <div class="work-price">5,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/ella/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել B-201 (Ella) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 2. Kara -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="kara.jpg" alt="B-202"></div>
+                    <div class="work-code">CODE: B-202</div>
+                    <div class="work-price">5,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/kara13/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել B-202 (Kara) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 3. Merry -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="merry.jpg" alt="B-203"></div>
+                    <div class="work-code">CODE: B-203</div>
+                    <div class="work-price">5,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/merry/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել B-203 (Merry) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+                <!-- 4. Nataly -->
+                <div class="work-card">
+                    <div class="phone-preview"><img src="nataly.jpg" alt="B-204"></div>
+                    <div class="work-code">CODE: B-204</div>
+                    <div class="work-price">5,000 ֏</div>
+                    <div class="card-buttons">
+                        <a href="https://asatryanm999-lgtm.github.io/Nataly/" target="_blank" class="btn-view btn-view-lbl">Դիտել</a>
+                        <a href="https://ig.me/m/asatryan_digital_studio?text=Բարև ձեզ, ցանկանում եմ պատվիրել B-204 (Nataly) հրավիրատոմսը" target="_blank" class="btn-order btn-lbl">Պատվիրել</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ՀԱՐՑԱԿԱՆԻ ԿՈՃԱԿԸ -->
+    <button class="info-floating-btn" onclick="toggleModal(true)">?</button>
+
+    <!-- ՏԵՂԵԿԱՏՎԱԿԱՆ ՊԱՏՈՒՀԱՆԸ (MODAL HTML) -->
+    <div class="info-modal" id="details-modal" onclick="if(event.target === this) toggleModal(false)">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="toggleModal(false)">&times;</button>
+            <h4 class="modal-title" id="modal-title-text">Հարգելի հաճախորդ, ահա՜ բոլոր մանրամասները ձեր հրավիրատոմսի մասին.</h4>
+            <ul class="modal-list">
+                <li id="m-item-1">1. Հրավիրատոմսը լինում է ամբողջությամբ ձեր նախընտրություններով՝ ձեր նկարներով, երաժշտությունով և այլն։ Անհատական դիզայնը առանց հավելավճարի է։</li>
+                <li id="m-item-2">2. RSVP (հյուրերի պատասխանների) հարցման արդյունքները ձեզ կարող են ուղարկվել յուրաքանչյուր ծրագրով՝ Viber, WhatsApp, Telegram...</li>
+                <li id="m-item-3">3. Հրավիրատոմսը «ողջ» կմնա այնքան ժամանակ, որքան որ դուք ինքներդ կցանկանաք։</li>
+            </ul>
+        </div>
+    </div>
+<script>
+        window.addEventListener('scroll', function() {
+            const menu = document.getElementById('sticky-menu');
+            if (window.scrollY > 500) {
+                menu.classList.add('scrolled');
+            } else {
+                menu.classList.remove('scrolled');
+            }
+        });
+
+        function showCategory(category, element) {
+            document.querySelectorAll('.catalog-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.category-circle').forEach(circle => {
+                circle.classList.remove('active');
+            });
+
+            const activeSection = document.getElementById(category + '-catalog');
+            activeSection.classList.add('active');
+            element.classList.add('active');
+
+            activeSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function toggleModal(open) {
+            const modal = document.getElementById('details-modal');
+            if (open) {
+                modal.classList.add('open');
+            } else {
+                modal.classList.remove('open');
+            }
+        }
+function changeLanguage() {
+            const lang = document.getElementById('lang-picker').value;
+            
+            const translations = {
+                hy: {
+                    quote: "Ամեն բան սկսվում է հրավերից...",
+                    tabWedding: "Հարսանիք",
+                    tabBaptism: "Մկրտություն",
+                    tabBirthday: "Ծնունդ",
+                    titleWedding: "Հարսանեկան Օրինակներ",
+                    titleBaptism: "Մկրտության Օրինակներ",
+                    titleBirthday: "Ծննդյան Օրինակներ",
+                    notice: "Տվյալ պահին հրավիրատոմսի կոճակները չեն աշխատի",
+                    viewBtn: "Դիտել",
+                    orderBtn: "Պատվիրել",
+                    mTitle: "Հարգելի հաճախորդ, ահա՜ բոլոր մանրամասները ձեր հրավիրատոմսի մասին.",
+                    m1: "1. Հրավիրատոմսը լինում է ամբողջությամբ ձեր նախընտրություններով՝ ձեր նկարներով, երաժշտությունով և այլն։ Անհատական դիզայնը առանց հավելավճարի է։",
+                    m2: "2. RSVP (հյուրերի պատասխանների) հարցման արդյունքները ձեզ կարող են ուղարկվել յուրաքանչյուր ծրագրով՝ Viber, WhatsApp, Telegram...",
+                    m3: "3. Հրավիրատոմսը «ողջ» կմնա այնքան ժամանակ, որքան որ դուք ինքներդ կցանկանաք։"
+                },
+                ru: {
+                    quote: "Всё начинается с приглашения...",
+                    tabWedding: "Свадьба",
+                    tabBaptism: "Крещение",
+                    tabBirthday: "День Рождения",
+                    titleWedding: "Свадебные Примеры",
+                    titleBaptism: "Примеры на Крещение",
+                    titleBirthday: "Примеры на День Рождения",
+                    notice: "В данный момент кнопки пригласительных не работают",
+                    viewBtn: "Смотреть",
+                    orderBtn: "Заказать",
+                    mTitle: "Уважаемый клиент, вот все подробности о вашем пригласительном.",
+                    m1: "1. Пригласительное создается полностью по вашим предпочтениям: с вашими фото, музыкой и т.д. Индивидуальный дизайн без доплат.",
+                    m2: "2. Результаты опроса RSVP (ответы гостей) могут быть отправлены вам через любое приложение: Viber, WhatsApp, Telegram...",
+                    m3: "3. Пригласительное останется «живым» столько времени, сколько вы сами пожелаете."
+                },
+                en: {
+                    quote: "Everything begins with an invitation...",
+                    tabWedding: "Wedding",
+                    tabBaptism: "Baptism",
+                    tabBirthday: "Birthday",
+                    titleWedding: "Wedding Examples",
+                    titleBaptism: "Baptism Examples",
+                    titleBirthday: "Birthday Examples",
+                    notice: "At the moment, the invitation buttons will not work",
+                    viewBtn: "View",
+                    orderBtn: "Order",
+                    mTitle: "Dear customer, here are all the details about your invitation.",
+                    m1: "1. The invitation is made entirely according to your preferences with your photos, music, etc. Individual design is free of charge.",
+                    m2: "2. RSVP (guest responses) survey results can be sent to you via any application: Viber, WhatsApp, Telegram...",
+                    m3: "3. The invitation will stay 'alive' for as long as you wish."
+                }
+            };
+
+            document.getElementById('main-quote').innerText = translations[lang].quote;
+            document.getElementById('tab-wedding').innerText = translations[lang].tabWedding;
+            document.getElementById('tab-baptism').innerText = translations[lang].tabBaptism;
+            document.getElementById('tab-birthday').innerText = translations[lang].tabBirthday;
+            document.getElementById('title-wedding').innerText = translations[lang].titleWedding;
+            document.getElementById('title-baptism').innerText = translations[lang].titleBaptism;
+            document.getElementById('title-birthday').innerText = translations[lang].titleBirthday;
+            document.getElementById('notice-msg').innerText = translations[lang].notice;
+            document.getElementById('modal-title-text').innerText = translations[lang].mTitle;
+            document.getElementById('m-item-1').innerText = translations[lang].m1;
+            document.getElementById('m-item-2').innerText = translations[lang].m2;
+            document.getElementById('m-item-3').innerText = translations[lang].m3;
+            
+            document.querySelectorAll('.btn-view-lbl').forEach(btn => {
+                btn.innerText = translations[lang].viewBtn;
+            });
+            document.querySelectorAll('.btn-lbl').forEach(btn => {
+                btn.innerText = translations[lang].orderBtn;
+            });
+        }
+    </script>
+</body>
+</html>
